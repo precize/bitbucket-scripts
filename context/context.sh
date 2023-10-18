@@ -2,7 +2,7 @@
 
 export YOR_VERSION=0.1.183
 wget -q -O - https://github.com/bridgecrewio/yor/releases/download/${YOR_VERSION}/yor_${YOR_VERSION}_linux_amd64.tar.gz | tar -xvz -C /tmp
-changedDirs=$(git log -m -1 --name-only --pretty="format:" ${BITBUCKET_COMMIT} | grep -v '.bitbucket-pipelines.yml' | sed '/^[[:space:]]*$/d' | xargs dirname | sort -u)
+changedDirs=$(git log -m -1 --name-only --pretty="format:" ${BITBUCKET_COMMIT} | grep -vw 'bitbucket-pipelines.yml' | sed '/^[[:space:]]*$/d' | xargs dirname | sort -u)
 dirArr=($changedDirs)
 
 for dir in "${dirArr[@]}"
