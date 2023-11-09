@@ -7,7 +7,7 @@ dirArr=($changedDirs)
 
 for dir in "${dirArr[@]}"
 do
-    /tmp/yor tag -d $dir --tag-groups git --skip-tags git_org,git_modifiers,git_last_modified_by,git_last_modified_at --parsers Terraform --tag-prefix precize_ --tag-local-modules false
+    /tmp/yor tag -d $dir --tag-groups git --skip-tags git_org,git_modifiers,git_last_modified_by,git_last_modified_at --parsers Terraform --tag-local-modules false
 done
 
 lines=$(git status -s -uno | wc -l)
